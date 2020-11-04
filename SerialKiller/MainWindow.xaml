@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialKiller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="662" Width="1054"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <DockPanel LastChildFill="False">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem x:Name="mitem_Connect" Header="_Connect" Click="mitem_Connect_Clicked" />
+                    <MenuItem x:Name="mitem_Upload" Header="_Upload File" Click="mitem_Upload_Clicked" />
+                    <Separator />
+                    <MenuItem x:Name="mitem_Exit" Header="_Exit" Click="mitem_Exit_Clicked" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem x:Name="mitem_Properties" Header="_Properties" Click="mitem_Properties_Clicked" />
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem x:Name="mitem_About" Header="_About" Click="mitem_About_Clicked" />
+                </MenuItem>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom" Height="30">
+                <StatusBarItem Height="30">
+                    <TextBlock Name="lblStatus" Text="test" />
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
     </Grid>
 </Window>

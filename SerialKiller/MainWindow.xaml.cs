@@ -24,5 +24,35 @@ namespace SerialKiller
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Menu Item Interactions
+        /// </summary>
+        private void mitem_Connect_Clicked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Menu->File->Connect");
+        }
+
+        private void mitem_Upload_Clicked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Menu->File->Upload");
+        }
+
+        private void mitem_Exit_Clicked(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void mitem_Properties_Clicked(object sender, RoutedEventArgs e)
+        {
+            PropertiesWindow propertiesWindow = new PropertiesWindow();
+            propertiesWindow.Show();
+        }
+
+        private void mitem_About_Clicked(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.Show();
+        }
     }
 }

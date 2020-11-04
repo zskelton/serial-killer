@@ -13,3 +13,7 @@ C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csp
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csproj.CoreCompileInputs.cache
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.exe
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.pdb
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\About.g.cs
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\About.baml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\PropertiesWindow.g.cs
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\PropertiesWindow.baml

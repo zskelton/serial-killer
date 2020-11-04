@@ -1,0 +1,15 @@
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\SerialKiller.exe.config
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\SerialKiller.exe
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\SerialKiller.pdb
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csprojAssemblyReference.cache
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\MainWindow.g.cs
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\App.g.cs
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller_MarkupCompile.cache
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller_MarkupCompile.lref
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\MainWindow.baml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.g.resources
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.Properties.Resources.resources
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csproj.GenerateResource.cache
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csproj.CoreCompileInputs.cache
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.exe
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.pdb

@@ -17,3 +17,10 @@ C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\About.g.cs
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\About.baml
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\PropertiesWindow.g.cs
 C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\PropertiesWindow.baml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\Simple Styles.baml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\App.baml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\AdonisUI.dll
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\AdonisUI.xml
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\obj\Debug\SerialKiller.csproj.CopyComplete
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\AdonisUI.ClassicTheme.dll
+C:\Users\zbert\source\repos\SerialKiller\SerialKiller\bin\Debug\AdonisUI.ClassicTheme.xml

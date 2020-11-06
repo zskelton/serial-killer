@@ -23,5 +23,10 @@ namespace SerialKiller
         {
             InitializeComponent();
         }
+
+        private void btn_Close_Clicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

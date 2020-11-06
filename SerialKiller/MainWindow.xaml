@@ -4,9 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialKiller"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="662" Width="1054"
+        WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
     <Grid>
-        
+        <DockPanel LastChildFill="False">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem x:Name="mitem_Connect" Header="_Connect" Click="mitem_Connect_Clicked" />
+                    <MenuItem x:Name="mitem_Upload" Header="_Upload File" Click="mitem_Upload_Clicked" />
+                    <Separator />
+                    <MenuItem x:Name="mitem_Exit" Header="_Exit" Click="mitem_Exit_Clicked" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem x:Name="mitem_Properties" Header="_Properties" Click="mitem_Properties_Clicked" />
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem x:Name="mitem_About" Header="_About" Click="mitem_About_Clicked" />
+                </MenuItem>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom" Height="30">
+                <StatusBarItem Height="30">
+                    <TextBlock x:Name="lblStatus" Text="test" />
+                </StatusBarItem>
+            </StatusBar>
+            <TextBox DockPanel.Dock="Right" x:Name="txt_Terminal" Height="584" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Margin="0,0,0,-3" Width="771"/>
+            <Grid Height="581.04" VerticalAlignment="Top" Width="275" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="63.2" VerticalAlignment="Top" Width="275" Orientation="Horizontal">
+                    <Label x:Name="lbl_Port" Content="Port:" Height="63.2" VerticalAlignment="Center" Margin="0,0,-112.994,0" HorizontalAlignment="Left" Width="75" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txt_Port" Height="34" TextWrapping="Wrap" Text="COM3" VerticalAlignment="Center" Margin="0,14,-195,15" Width="135" HorizontalAlignment="Right" HorizontalContentAlignment="Left"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="0" Height="115.48" Width="265" Orientation="Horizontal" Margin="0,68.2,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="Connect" Height="25" VerticalAlignment="Top" Margin="0,0,-150,0" Click="btn_Conect_Clicked" VerticalContentAlignment="Center"/>
+                    <ProgressBar x:Name="bar_Connect" Height="25" VerticalAlignment="Center" Margin="0,0,-100,0" Value="50"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>

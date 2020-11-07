@@ -32,7 +32,7 @@
                     <TextBlock x:Name="lblStatus" />
                 </StatusBarItem>
             </StatusBar>
-            <TextBox DockPanel.Dock="Right" x:Name="txt_Terminal" Height="571" TextWrapping="Wrap" Text="{Binding Path=terminalText,Mode=TwoWay}" VerticalAlignment="Top" Margin="20" Width="771" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left"/>
+            <TextBox DockPanel.Dock="Right" x:Name="txt_Terminal" Height="571" TextWrapping="Wrap" Text="{Binding Path=terminalText,Mode=TwoWay}" VerticalAlignment="Top" Margin="20" Width="771" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalContentAlignment="Top"    />
             <Grid Height="581.04" VerticalAlignment="Top" Width="275" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
@@ -43,11 +43,11 @@
                     <RowDefinition Height="2*" />
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="63.2" VerticalAlignment="Top" Width="275" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="63.2" VerticalAlignment="Top" Width="275" Orientation="Horizontal" Margin="20,-4,20,0">
                     <Label x:Name="lbl_Port" Content="Port:" Height="63.2" VerticalAlignment="Center" Margin="0,0,-112.994,0" HorizontalAlignment="Left" Width="75" VerticalContentAlignment="Center"/>
                     <TextBox x:Name="txt_Port" Height="34" TextWrapping="Wrap" Text="COM3" VerticalAlignment="Center" Margin="0,14,-195,15" Width="135" HorizontalAlignment="Right" HorizontalContentAlignment="Left"/>
                 </StackPanel>
-                <StackPanel Grid.Row="1" Grid.Column="0" Height="115.48" Width="260" Margin="5,73.2,10,5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Grid.Column="0" Height="115.48" Width="260" Margin="20,73.2,20,5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                     <Button x:Name="btn_Connect" Content="Connect" Height="25" VerticalAlignment="Top" Margin="0,0,-150,0" Click="btn_Connect_Clicked" VerticalContentAlignment="Center"/>
                     <ProgressBar x:Name="bar_Connect" Height="25" VerticalAlignment="Center" Margin="0,45,-100,45" Value="50"/>
                 </StackPanel>

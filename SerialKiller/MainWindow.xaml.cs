@@ -71,14 +71,15 @@ namespace SerialKiller
     public partial class MainWindow : Window
     {
         SerialConnection serPort;
-        public string terminalText { get; set; }
+        //public string terminalText { get; set; }
+        StringBuilder terminalText;
 
         public MainWindow()
         {
             // Initialize Window
             InitializeComponent();
             serPort = new SerialConnection();
-            terminalText = "";
+            terminalText = new StringBuilder();
 
             // Set Theme per Preference
             if (Properties.Settings.Default.Mode.ToString() == "dark")
@@ -101,8 +102,15 @@ namespace SerialKiller
         {
             SerialPort sp = (SerialPort)sender;
             string inData = sp.ReadExisting();
-            terminalText += inData;
-            Dispatcher.BeginInvoke(new Action(() => { txt_Terminal.Text = terminalText; }));
+            //terminalText += inData;
+            terminalText.Append(inData+" ");
+            Dispatcher.BeginInvoke(new Action(() => 
+                { 
+                    txt_Terminal.Text = terminalText.ToString(); 
+                    txt_Terminal.Select(txt_Terminal.Text.Length, 0);
+                    txt_Terminal.Focus();
+                }
+            ));
         }
 
         // Connection
@@ -120,6 +128,7 @@ namespace SerialKiller
                 // Adjust UI
                 btn_Connect.IsEnabled = false;
                 btn_Stop.IsEnabled = true;
+                txt_Terminal.Text = "";
 
                 // Report
                 lblStatus.Text = "Connected.";
@@ -134,6 +143,7 @@ namespace SerialKiller
                     lblStatus.Text = serPort.errorMessage;
                     bar_Connect.Value = 100;
                     bar_Connect.Foreground = new SolidColorBrush(Colors.Red);
+                    txt_Terminal.Text = serPort.errorMessage;
                 }
             }
         }

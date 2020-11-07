@@ -20,7 +20,10 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Left" Height="201.75" VerticalAlignment="Top" Width="282" Orientation="Horizontal" Panel.ZIndex="-1" Margin="10,0,0,0">
             <Image HorizontalAlignment="Center" Height="116.75" VerticalAlignment="Center" Width="75" Panel.ZIndex="2" Source="Resources/oes.jpg" Margin="0,42.5"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="191.75" Width="215" Panel.ZIndex="1" TextAlignment="Center"><Run FontWeight="Bold" FontSize="16"/><LineBreak/><Run FontWeight="Bold" FontSize="20" Text="Serial Killer"/><LineBreak/><Run FontSize="8" Text="(version 1.0)"/><LineBreak/><Run FontSize="8"/><LineBreak/><Run/><LineBreak/><Run Text="Creates serial connections and interactions with devices utilizing Microsoft's .NET library."/><LineBreak/><Run/><LineBreak/><LineBreak/><Run FontSize="8" Text="Zachary D. Skelton"/><LineBreak/><Run FontSize="8" Text="zbert@hotmail.com"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="191.75" Width="200" Panel.ZIndex="1" TextAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect/>
+                </TextBlock.Effect><Run FontWeight="Bold" FontSize="16"/><LineBreak/><Run FontWeight="Bold" FontSize="20" Text="Serial Killer"/><LineBreak/><Run FontSize="8" Text="(version 1.0)"/><LineBreak/><Run FontSize="8"/><LineBreak/><Run/><LineBreak/><Run Text="Creates serial connections and interactions with devices utilizing Microsoft's .NET library."/><LineBreak/><Run/><LineBreak/><LineBreak/><Run FontSize="8" Text="Zachary D. Skelton"/><LineBreak/><Run FontSize="8" Text="zbert@hotmail.com"/></TextBlock>
         </StackPanel>
         <Button Grid.Row="1" x:Name="btn_Close" Content="Close" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="btn_Close_Clicked"/>
     </Grid>

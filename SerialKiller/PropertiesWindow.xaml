@@ -12,9 +12,6 @@
     </Window.Style>
     <Grid>
         <StackPanel HorizontalAlignment="Center" Height="100" Margin="25,55,70,51" VerticalAlignment="Center" Width="235" Orientation="Horizontal">
-            <StackPanel.Effect>
-                <DropShadowEffect/>
-            </StackPanel.Effect>
             <TextBlock 
                    VerticalAlignment="Top" 
                    Margin="0,0,73,0" 

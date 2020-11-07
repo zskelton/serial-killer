@@ -13,70 +13,151 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO.Ports;
+using System.Timers;
+using System.ComponentModel;
+using System.Threading;
+using System.Diagnostics;
 
 namespace SerialKiller
 {
+    // The interface is 9600 baud, 8 bit, no parity, 1 stop bit.
+    public partial class SerialConnection
+    {
+        public bool isConnected = false;
+        public SerialPort serialConnection = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+        public bool hasError = false;
+        public string errorMessage = "";
+
+        public bool Connect()
+        {
+            try
+            {
+                serialConnection.ReadTimeout = 500;
+                serialConnection.WriteTimeout = 500;
+                serialConnection.Open();
+                isConnected = true;
+            }
+            catch (Exception ex)
+            {
+                setError(true, ex.ToString());
+            }
+            return isConnected;
+        }
+
+        public void Close()
+        {
+            try
+            {
+                isConnected = false;
+                serialConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                setError(true, ex.ToString());
+            }
+        }
+
+        private void setError(bool setError, string setMessage)
+        {
+            hasError = setError;
+            errorMessage = setMessage;
+            Console.WriteLine("Connection Error: {0}.", setMessage);
+        }
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        SerialConnection serPort;
+        public string terminalText { get; set; }
+
         public MainWindow()
         {
+            // Initialize Window
             InitializeComponent();
+            serPort = new SerialConnection();
+            terminalText = "";
 
             // Set Theme per Preference
-            if(Properties.Settings.Default.Mode.ToString() == "dark")
+            if (Properties.Settings.Default.Mode.ToString() == "dark")
             {
                 AdonisUI.ResourceLocator.SetColorScheme(Application.Current.Resources, AdonisUI.ResourceLocator.DarkColorScheme);
             } else
             {
                 AdonisUI.ResourceLocator.SetColorScheme(Application.Current.Resources, AdonisUI.ResourceLocator.LightColorScheme);
             }
+
+            // Setup UI
+            btn_Connect.IsEnabled = true;
+            btn_Stop.IsEnabled = false;
+            bar_Connect.Value = 0;
+            lblStatus.Text = "Ready to connect.";
         }
 
-        private void ChangeTheme(bool oldValue)
+        // Reading from Port
+        public void dataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //AdonisUI.ResourceLocator.SetColorScheme(Application.Current.Resources, oldValue ? AdonisUI.ResourceLocator.LightColorScheme : AdonisUI.ResourceLocator.DarkColorScheme);
+            SerialPort sp = (SerialPort)sender;
+            string inData = sp.ReadExisting();
+            terminalText += inData;
+            Dispatcher.BeginInvoke(new Action(() => { txt_Terminal.Text = terminalText; }));
         }
 
-        /// <summary>
-        /// Connection Functions
-        /// </summary>
-        private void btn_Conect_Clicked(object sender, RoutedEventArgs e)
+        // Connection
+        private void btn_Connect_Clicked(object sender, RoutedEventArgs e)
         {
             // Variables
             string port = txt_Port.Text;
-            SerialPort conn = new SerialPort();
+            var worker = new BackgroundWorker();
 
-            // Check for Empty Port String
-            if(port == "")
+            serPort.serialConnection.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
+
+            // Connect
+            if(serPort.Connect())
             {
-                lblStatus.Text = "No port designated.";
+                // Adjust UI
+                btn_Connect.IsEnabled = false;
+                btn_Stop.IsEnabled = true;
+
+                // Report
+                lblStatus.Text = "Connected.";
+                bar_Connect.Value = 100;
+                bar_Connect.Foreground = new SolidColorBrush(Colors.Green);
             }
-
-            // Try to Connect to Port (Hard Coded for now)
-            conn.PortName = "COM3"; // "COM3" String
-            conn.BaudRate = 9600; // 9600 Int32
-            conn.Parity = Parity.None; // No Parity Enum
-            conn.StopBits = StopBits.One;
-            conn.DataBits = 8;
-            conn.Handshake = Handshake.None;
-            conn.RtsEnable = true;
-
-            try
+            else
             {
-                conn.Open();
-            } catch (Exception ex)
-            {
-                Console.WriteLine(ex);
+                // On Error
+                if(serPort.hasError)
+                {
+                    lblStatus.Text = serPort.errorMessage;
+                    bar_Connect.Value = 100;
+                    bar_Connect.Foreground = new SolidColorBrush(Colors.Red);
+                }
             }
+        }
 
-            Console.WriteLine(conn.ReadLine());
+        // Closing Operations
+        private void btn_Stop_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (serPort.isConnected)
+            {
+                serPort.Close();
+                btn_Connect.IsEnabled = true;
+                btn_Stop.IsEnabled = false;
+                bar_Connect.Value = 0;
+                lblStatus.Text = "Ready for Connection.";
+            }
+        }
 
-            conn.Close();
-            
-
+        // Close Connection on any Close
+        private void on_Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (serPort.isConnected)
+            {
+                serPort.Close();
+            }
         }
 
         /// <summary>

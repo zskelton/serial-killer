@@ -27,4 +27,4 @@ Artifacts:
     # Restore Dependencies (NuGet)
     - nuget restore
     # Build Project
-    - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" SerialKiller.sln
+    - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" SerialKiller.sln /p:TargetFrameworkVersion="v4.5"

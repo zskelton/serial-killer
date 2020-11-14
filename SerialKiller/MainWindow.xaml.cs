@@ -71,15 +71,18 @@ namespace SerialKiller
     public partial class MainWindow : Window
     {
         SerialConnection serPort;
-        //public string terminalText { get; set; }
-        StringBuilder terminalText;
+        //StringBuilder terminalText;
+        string terminalText;
+        //string enteredText;
 
         public MainWindow()
         {
             // Initialize Window
             InitializeComponent();
             serPort = new SerialConnection();
-            terminalText = new StringBuilder();
+            //terminalText = new StringBuilder();
+            terminalText = "";
+            //enteredText = "";
 
             // Set Theme per Preference
             if (Properties.Settings.Default.Mode.ToString() == "dark")
@@ -97,16 +100,35 @@ namespace SerialKiller
             lblStatus.Text = "Ready to connect.";
         }
 
+        // Terminal Interaction
+        private void txtTerminal_key_clicked(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    string oldString = terminalText;
+                    string newString = txt_Terminal.Text;
+                    Console.WriteLine("New String Length: {0}\tOld String Length: {1}", oldString.Length, newString.Length);
+                    string difference = newString.Substring(oldString.Length, newString.Length-1);
+                    Console.WriteLine(difference);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
+        }
+
         // Reading from Port
         public void dataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
             string inData = sp.ReadExisting();
-            //terminalText += inData;
-            terminalText.Append(inData+" ");
+            terminalText += inData + " ";
             Dispatcher.BeginInvoke(new Action(() => 
                 { 
-                    txt_Terminal.Text = terminalText.ToString(); 
+                    txt_Terminal.Text = terminalText; 
                     txt_Terminal.Select(txt_Terminal.Text.Length, 0);
                     txt_Terminal.Focus();
                 }

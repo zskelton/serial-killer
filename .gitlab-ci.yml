@@ -1,0 +1,30 @@
+####
+# Build Windows .NET Framework Applications on Linux using the mono image.
+# For docker image tags see https://store.docker.com/images/mono/plans/140b7546-967e-4e7d-b3f2-ad2102ecfc8b?tab=tags
+# -
+# Requires `Project.sln` to be in the root directory.
+####
+
+# Image
+image: mono:4.8.0.524
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - ~/.local/share/NuGet/Cache
+    - ~/.nuget/packages
+
+# Stages
+stages:
+  - build
+
+# Build Artifacts
+# https://forum.gitlab.com/t/build-net-projects/1395/12
+Artifacts:
+  stage: build
+  script:
+    # Restore Dependencies (NuGet)
+    - nuget restore
+    # Build Project
+    - MONO_IOMAP=case xbuild /t:Build /p:Configuration="Release" /p:Platform="Any CPU" SerialKiller.sln

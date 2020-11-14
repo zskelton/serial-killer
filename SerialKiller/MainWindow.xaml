@@ -32,7 +32,7 @@
                     <TextBlock x:Name="lblStatus" />
                 </StatusBarItem>
             </StatusBar>
-            <TextBox DockPanel.Dock="Right" x:Name="txt_Terminal" Height="571" TextWrapping="Wrap" Text="{Binding Path=terminalText,Mode=TwoWay}" VerticalAlignment="Top" Margin="20" Width="771" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalContentAlignment="Top"    />
+            <TextBox DockPanel.Dock="Right" x:Name="txt_Terminal" Height="571" TextWrapping="Wrap" Text="{Binding Path=terminalText,Mode=TwoWay}" VerticalAlignment="Top" Margin="20" Width="771" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalContentAlignment="Top" KeyUp="txtTerminal_key_clicked"    />
             <Grid Height="581.04" VerticalAlignment="Top" Width="275" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />

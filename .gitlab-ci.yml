@@ -12,4 +12,4 @@ before_script:
 build:
     stage: build
     script:
-        - msbuild /p:Configuration=Release $solution
+        - xbuild /p:Configuration=Release $solution

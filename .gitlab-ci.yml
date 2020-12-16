@@ -1,7 +1,13 @@
-image: mono:4.4.0.182
+stages:
+  - build-mono
 
-build:
-stage: build
-script:
-- nuget restore
-- MONO_IOMAP=case xbuild /t:Build /p:Configuration=“Release” /p:Platform=“Any CPU” SerialKiller.sln
+build-mono:
+  stage: build-mono
+  image: mono:latest
+  before_script:
+  script:
+    - nuget restore SerialKiller.sln
+    - msbuild 
+        /p:Configuration="Release"
+        /p:Platform="Any CPU" 
+        "SerialKiller.sln"

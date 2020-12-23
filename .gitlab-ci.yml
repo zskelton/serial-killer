@@ -1,4 +1,4 @@
-image: docker-windows
+image: mono
 
 variables:
   PROJECT_NAME: "SerialKiller"

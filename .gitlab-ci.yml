@@ -1,4 +1,4 @@
-image: mono
+image: windows
 
 variables:
   PROJECT_NAME: "SerialKiller"

@@ -1,9 +1,6 @@
-.shared_windows_runners:
+job:
   tags:
-    - shared-windows
     - windows
-
-image: dotnet/framework
 
 variables:
   PROJECT_NAME: "SerialKiller"

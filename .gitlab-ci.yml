@@ -1,3 +1,8 @@
+shared_windows_runners:
+  tags:
+    - shared-windows
+    - windows
+
 image: dotnet/framework
 
 variables:

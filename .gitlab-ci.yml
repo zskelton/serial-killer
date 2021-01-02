@@ -1,4 +1,4 @@
-shared_windows_runners:
+.shared_windows_runners:
   tags:
     - shared-windows
     - windows

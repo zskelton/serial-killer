@@ -1,6 +1,4 @@
-job:
-  tags:
-    - windows
+image: windows
 
 variables:
   PROJECT_NAME: "SerialKiller"

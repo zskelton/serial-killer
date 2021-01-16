@@ -1,7 +1,4 @@
 image: windows
-
-tags:
-  - docker-windows
   
 variables:
   PROJECT_NAME: "SerialKiller"
@@ -13,6 +10,8 @@ stages:
   - build
   #- test
 build:
+  tags:
+    - docker-windows
   stage: build
   script:
   - echo "Release build..."

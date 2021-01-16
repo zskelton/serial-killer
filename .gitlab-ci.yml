@@ -1,4 +1,4 @@
-image: windows
+image: mcr.microsoft.com/dotnet/nightly/runtime-deps
   
 variables:
   PROJECT_NAME: "SerialKiller"

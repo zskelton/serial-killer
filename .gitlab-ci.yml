@@ -1,5 +1,8 @@
 image: windows
 
+tags:
+  - docker-windows
+  
 variables:
   PROJECT_NAME: "SerialKiller"
 before_script:
